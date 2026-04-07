@@ -70,4 +70,23 @@ export const actorController = {
       });
     }
   },
+  async delete(req: Request, res: Response) {
+    try {
+      const { id } = req?.params;
+
+      await pool.query('delete from actor where actor_id=$1', [id]);
+
+      res.status(200).json({
+        success: true,
+        message: `Delete actor with id=${id} successfull`,
+        data: {},
+      });
+    } catch (error) {
+      res.status(500).json({
+        success: false,
+        message: `Delete actor failed`,
+        data: null,
+      });
+    }
+  },
 };
