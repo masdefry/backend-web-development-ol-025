@@ -39,7 +39,33 @@ export const actorController = {
     } catch (error) {
       res.status(500).json({
         success: false,
-        message: 'Get actors failed',
+        message: 'Create actor failed',
+        data: null,
+      });
+    }
+  },
+  async update(req: Request, res: Response) {
+    try {
+      const { firstName, lastName } = req?.body;
+      const { id } = req?.params;
+
+      await pool.query(
+        'update actor set first_name=$1, last_name=$2 where actor_id=$3',
+        [firstName, lastName, id],
+      );
+
+      res.status(200).json({
+        success: true,
+        message: `Update actor with id=${id} successfull`,
+        data: {
+          firstName,
+          lastName,
+        },
+      });
+    } catch (error: any) {
+      res.status(500).json({
+        success: false,
+        message: `Update actor failed`,
         data: null,
       });
     }
