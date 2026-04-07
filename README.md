@@ -2,46 +2,58 @@ Hello, students 👋!
 
 🧑‍💻 How to Setup Express Typescript?
 
-1. Create New Directory for ExpressTS Projects
+        1. Create New Directory for ExpressTS Projects
 
-2. Inside New Directory, Execute this Command:
+        2. Inside New Directory, Execute this Command:
 
-        ➡️ npm init --yes
+                ➡️ npm init --yes
 
-3. Install Express Typescript & Nodemon
+        3. Install Express Typescript & Nodemon
 
-        ➡️ npm i express
+                ➡️ npm i express
 
-        ➡️ npm i --save-dev @types/express
+                ➡️ npm i --save-dev @types/express
 
-        ➡️ npm i -D typescript ts-node nodemon
+                ➡️ npm i -D typescript ts-node nodemon
 
-4. Initiate Typescript Configuration
+        4. Initiate Typescript Configuration
 
-        ➡️ npx tsc --init
+                ➡️ npx tsc --init
 
-5. Replace `tsconfig.json` with This Configuration:
+        5. Replace `tsconfig.json` with This Configuration:
 
-        {
-            "compilerOptions": {
-                "target": "ES6",
-                "module": "commonjs",
-                "outDir": "./dist",
-                "rootDir": "./src",
-                "strict": true,
-                "esModuleInterop": true,
-                "skipLibCheck": true
-            }
-        }
+                {
+                        "compilerOptions": {
+                                "target": "ES6",
+                                "module": "commonjs",
+                                "outDir": "./dist",
+                                "rootDir": "./src",
+                                "strict": true,
+                                "esModuleInterop": true,
+                                "skipLibCheck": true
+                        }
+                }
 
-6. Replace Property `scripts` on `package.json` with this Code:
+        6. Replace Property `scripts` on `package.json` with this Code:
 
-        "scripts": {
-            "dev": "nodemon src/server.ts",
-            "build": "tsc",
-            "start": "node dist/server.js",
-        }
+                "scripts": {
+                        "dev": "nodemon src/server.ts",
+                        "build": "tsc",
+                        "start": "node dist/server.js"
+                }
 
-7. Running Express Typescript Projects
+        7. Running Express Typescript Projects
 
-        ➡️ npm run dev
+                ➡️ npm run dev
+
+🧑‍💻 Configure Postgres
+
+        1. Install Dependency
+
+                mysql           ➡️ npm i mysql2
+
+                posgresql       ➡️ npm i pg
+
+                                ➡️ npm i @types/pg --save-dev
+
+        2. Create Pooling Connection
