@@ -81,10 +81,10 @@ export const actorController = {
         message: `Delete actor with id=${id} successfull`,
         data: {},
       });
-    } catch (error) {
+    } catch (error: any) {
       res.status(500).json({
         success: false,
-        message: `Delete actor failed`,
+        message: error?.message,
         data: null,
       });
     }
