@@ -1,10 +1,13 @@
 import express, { NextFunction, Request, Response } from 'express';
+import usersRouter from './routers/users.router';
 
 const PORT: number = 8000;
 
 const app = express();
 
 app.use(express.json());
+
+app.use('/api/auth', usersRouter);
 
 app.use((error: any, req: Request, res: Response, next: NextFunction) => {
   res.status(500).json({
