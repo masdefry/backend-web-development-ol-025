@@ -31,11 +31,11 @@ model User{
 
 model Article{
   id          String            @id @default(cuid())
-  title       String            @db.VarChar(100)
+  title       String            @db.VarChar(100) 
   category    Category
   description String 
   thumbnail   String 
-  slug        String 
+  slug        String            @unique
   
   authorId    String 
   users       User              @relation(fields: [authorId], references: [id])

@@ -1,7 +1,28 @@
+import { Request, Response } from 'express';
+import { articlesService } from '../services/articles.service';
+
 export const articlesController = {
-    create(){}, 
-    getAll(){}, 
-    getDetail(){},
-    update(){}, 
-    delete(){}
-}
+  async create(req: Request, res: Response) {
+    const { title, category, description, thumbnail, authorId } = req?.body;
+
+    const createdArticle = await articlesService?.create({
+      title,
+      category,
+      description,
+      thumbnail,
+      authorId,
+    });
+
+    res.status(201).json({
+      success: true,
+      message: 'Create article successful',
+      data: {
+        ...createdArticle,
+      },
+    });
+  },
+  getAll() {},
+  getDetail() {},
+  update() {},
+  delete() {},
+};
