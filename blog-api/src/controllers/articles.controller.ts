@@ -21,7 +21,17 @@ export const articlesController = {
       },
     });
   },
-  getAll() {},
+  async getAll(req: Request, res: Response) {
+    const articles = await articlesService?.getAll();
+
+    res.status(200).json({
+      success: true,
+      message: 'Get all articles successful',
+      data: {
+        ...articles,
+      },
+    });
+  },
   getDetail() {},
   update() {},
   delete() {},

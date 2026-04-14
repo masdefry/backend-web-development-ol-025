@@ -38,7 +38,9 @@ export const articlesService = {
       slug,
     };
   },
-  getAll() {},
+  async getAll() {
+    return await prisma.article.findMany();
+  },
   getDetail() {},
   update() {},
   delete() {},
