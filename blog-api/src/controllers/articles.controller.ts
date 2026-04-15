@@ -27,9 +27,7 @@ export const articlesController = {
     res.status(200).json({
       success: true,
       message: 'Get all articles successful',
-      data: {
-        ...articles,
-      },
+      data: articles,
     });
   },
   getDetail() {},
