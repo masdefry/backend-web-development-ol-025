@@ -41,7 +41,13 @@ export const articlesService = {
   async getAll() {
     return await prisma.article.findMany();
   },
-  getDetail() {},
+  async getDetail(slug: string) {
+    return await prisma.article.findUnique({
+      where: {
+        slug
+      }
+    })
+  },
   update() {},
   delete() {},
 };

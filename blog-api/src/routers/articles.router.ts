@@ -10,3 +10,14 @@ articlesRouter.put('/:slug', articlesController?.update);
 articlesRouter.delete('/:slug', articlesController?.delete);
 
 export default articlesRouter;
+
+
+
+/*
+    URL
+        QUERY
+        PARAMS
+    
+    BODY
+    HEADERS
+*/

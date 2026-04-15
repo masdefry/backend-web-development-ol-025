@@ -30,7 +30,17 @@ export const articlesController = {
       data: articles,
     });
   },
-  getDetail() {},
+  async getDetail(req: Request, res: Response) {
+    const { slug } = req?.params;
+
+    const articles = await articlesService?.getDetail(slug as string);
+
+    res.status(200).json({
+      success: true,
+      message: `Get detail article with slug = ${slug} successful`,
+      data: articles,
+    });
+  },
   update() {},
   delete() {},
 };
